@@ -1,0 +1,94 @@
+<section class="w-100 pt-5 min-vh-100">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-lg-6 z-5 bg-white p-5">
+        <h1 class="mb-4 fw-semibold">{{'contactUs.title' | translate}}</h1>
+
+        <div class="col-12">
+          <form class="" [formGroup]="formData" (ngSubmit)="onSubmit(formData.value)">
+            <input class="mb-4 w-100 border-0 border-bottom p-2 rounded-3" type="text" required="required"
+              placeholder="{{'contactUs.name' | translate}}" formControlName="name" name="name"
+              data-error="full_name is required." />
+              <div class="signUpErrs"
+                  *ngIf="formData.get('name')?.errors !== null && formData.get('name')?.touched && formData.get('name')">
+                  <p *ngIf="formData.get('name')?.errors?.['required'] ">{{'contactUs.nameValidation1' | translate}}
+                  </p>
+                  <p *ngIf="formData.get('name')?.errors?.['minlength'] ">{{'contactUs.nameValidation2' | translate}}
+                  </p>
+                  <p *ngIf="formData.get('name')?.errors?.['maxlength'] ">{{'contactUs.nameValidation3' | translate}}
+                  </p>
+                </div>
+
+            <input class="mb-4 w-100 border-0 border-bottom p-2 rounded-3" type="email" required="required"
+              placeholder="{{'contactUs.email' | translate}}" formControlName="email" name="email"
+              data-error="Email is required." />
+              <div class="signUpErrs"
+              *ngIf="formData.get('email')?.errors !== null && formData.get('email')?.touched && formData.get('email')">
+              <p *ngIf="formData.get('email')?.errors?.['required'] ">{{'contactUs.emailValidation1' | translate}}
+              </p>
+              <p *ngIf="formData.get('email')?.errors?.['email'] ">{{'contactUs.emailValidation2' | translate}}
+              </p>
+            </div>
+
+            <input class="mb-4 w-100 border-0 border-bottom p-2 rounded-3" type="number" required="required"
+              placeholder="{{'contactUs.phone' | translate}}" formControlName="phone" name="phone"
+              data-error="PhoneNum is required" />
+              <div class="signUpErrs"
+              *ngIf="formData.get('phone')?.errors !== null && formData.get('phone')?.touched && formData.get('phone')">
+              <p *ngIf="formData.get('phone')?.errors?.['required'] ">{{'contactUs.phoneValidation' | translate}}
+              </p>
+            </div>
+
+            <input class="mb-3 w-100 border-0 border-bottom p-2 rounded-3" type="text" required="required"
+              placeholder="{{'contactUs.company' | translate}}" formControlName="companyName" name="name"
+              data-error="company_name is required." />
+              <div class="signUpErrs"
+              *ngIf="formData.get('companyName')?.errors !== null && formData.get('companyName')?.touched && formData.get('companyName')">
+              <p *ngIf="formData.get('companyName')?.errors?.['required'] ">{{'contactUs.companyValidation1' |translate}}
+              </p>
+              <p *ngIf="formData.get('companyName')?.errors?.['minlength'] ">{{'contactUs.companyValidation2' |translate}}
+              </p>
+            </div>
+
+            <div class=" mb-3 d-flex flex-column">
+              <select class="p-2 px-3" id="quantity" name="quantity" formControlName="quantity">
+                <option [ngValue]="null" disabled>{{'contactUs.quantity' | translate}}</option>
+                <option value="0 - 1000">0 - 1000</option>
+                <option value="1000 - 10,000">1000 - 10,000</option>
+                <option value="10,000 +">10,000 +</option>
+              </select>
+            </div>
+            <div class="signUpErrs"
+              *ngIf="formData.get('quantity')?.errors !== null && formData.get('quantity')?.touched && formData.get('quantity')">
+              <p *ngIf="formData.get('quantity')?.errors?.['required'] ">{{'contactUs.quantityValidation' |translate}}
+              </p>
+            </div>
+
+            <textarea class="w-100 mb-2F p-0 py-2 border-0 border-bottom text-black rounded-3 p-4" name="text"
+              formControlName="notes" placeholder="{{'contactUs.notes' | translate}}" rows="6">
+            </textarea>
+
+            <button class="w-50 btn text-white bg-black" [disabled]="!formData.valid" type="submit">
+
+              {{'contactUs.sendBtn' | translate}}
+            </button>
+          </form>
+        </div>
+      </div>
+      <!-- ------------------get in touch-------------- -->
+      <div class="col-sm-12 col-lg-6 z-5 bg-white p-5">
+        <h4 class="mb-5 text-center">{{'contactUs.title2' | translate}}</h4>
+        <h5 class="mb-3 text-center ps-4 mt-5 fs-4 fw-semibold">{{'contactUs.email' | translate}}</h5>
+        <h5 class="mb-4 text-center ps-4 fs-4 fw-semibold">{{'contactUs.media' | translate}}</h5>
+
+        <div class="media ps-4 mt-5 d-flex justify-content-evenly">
+          <a class="fs-1 link-dark text-decoration-none"><i class="bi bi-twitter"></i></a>
+          <a class="fs-1 link-dark text-decoration-none"><i class="bi bi-instagram"></i></a>
+          <a class="fs-1 link-dark text-decoration-none"><i class="bi bi-youtube"></i></a>
+          <a class="fs-1 link-dark text-decoration-none"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</section>

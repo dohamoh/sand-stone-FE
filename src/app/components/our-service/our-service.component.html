@@ -1,0 +1,21 @@
+<section class="pt-5">
+  <div class="col-12 my-4 d-flex justify-content-center text-white text-center">
+    <h1 class="z-5 w-75">{{'ourServicesTitle' | translate}}</h1>
+  </div>
+  <div *ngFor="let item of types">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 d-flex align-items-center p-3 my-5 z-5 text-white">
+          <div class=" w-50 text-center">
+            <img class="w-75 rounded-3" src="{{item.imgUrl}}" alt="">
+          </div>
+          <div class="w-50 text-center">
+            <h2 class="fs-1">{{item.title}}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</section>
+
